@@ -22,11 +22,3 @@ disabled:
     btn_label: "<i class='fas fa-book-reader'></i> Read"
     btn_class: "btn--primary"
 ---
-
-### Extra links {#links}
-
-- [My <i class="fab fa-fw fa-telegram-plane"></i> Telegram channel](https://t.me/+lFZe_xYprnVmMWFl) where I share random ideas.
-
-- And [<i class="fas fa-fw fa-globe-americas"></i> my friends' websites]({{ "/friends/" | relative_url }}).
-
-<script type="text/javascript">document.getElementById('page-title').insertAdjacentHTML('beforebegin', '<img src="/image/avatar.png" alt="iBug" class="avatar" itemprop="image" />');</script>
