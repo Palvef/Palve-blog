@@ -365,7 +365,7 @@ defaults:
       #classes: wide
       no_pagination: true
   - scope:
-        path: ""
+      path: ""
       type: share
     values:
       #classes: wide
