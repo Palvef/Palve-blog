@@ -1,0 +1,25 @@
+# Editors
+*.swp
+*.sw_
+*~
+.vscode
+
+# Generated content
+.git-metadata
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
+.svn
+_site
+
+# Bundler
+Gemfile.lock
+/vendor/
+.bundle/
+
+# NPM
+package-lock.json
+node_modules/
+
+# Whatever junk
+*.log
