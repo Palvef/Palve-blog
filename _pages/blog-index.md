@@ -9,7 +9,6 @@ pagination:
   enabled: true
   collection:
     - posts
-    - cn
 sidebar:
   nav: "home"
 ---
