@@ -237,8 +237,8 @@ sass:
 
 # Outputting
 source_url: "https://github.com/Pavlef/Palve-blog"
-index_url: /blog/
-permalink: /blog/:year/:month/:title/
+index_url: /
+permalink: /:year/:month/:title/
 timezone: "Etc/UTC" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 date_format: "%b %-d, %Y" 
 
