@@ -347,3 +347,46 @@ defaults:
       comments: # true
       share: true
       related: true
+      sidebar:
+        nav: home
+  - scope:
+      path: ""
+      type: posts
+    values:
+      read_time: true
+      show_date: true
+      related: true
+      toc: true
+      #toc_label: "On this page"
+  - scope:
+      path: ""
+      type: home
+    values:
+      #classes: wide
+      no_pagination: true
+  - scope:
+        path: ""
+      type: share
+    values:
+      #classes: wide
+      related: true
+      sidebar:
+        nav: share
+  - scope:
+      path: ""
+      type: pages
+    values:
+      author_profile: false
+      comments: false
+      related: false
+  - scope:
+      path: ""
+      type: tag
+    values: &tag-defaults
+      comments: false
+      related: false
+  - scope:
+      path: ""
+      type: category
+    values:
+      <<: *tag-defaults
