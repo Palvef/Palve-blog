@@ -10,8 +10,8 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-# theme                  : "minimal-mistakes-jekyll"
-remote_theme            : "Palvef/Palve-blog@main"
+theme                  : "minimal-mistakes-jekyll"
+# remote_theme            : "Palvef/Palve-blog@main"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -343,7 +343,6 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: posts
     values:
       layout: single
       author_profile: true

@@ -4,14 +4,14 @@ comments: false
 share: false
 
 friends:
-  - name: 
-    github: 
-    link: 
+  - name: iBug
+    github: https://github.com/iBug
+    link: https://ibug.io/
 
 net_friends:
-  - name: 
-    github: 
-    link: 
+  - name: iBug
+    github: https://github.com/iBug
+    link: https://ibug.io/
 ---
 
 Friends:
