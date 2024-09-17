@@ -5,7 +5,7 @@ toc: true
 
 A student at [NYIST][NYIST]. Mostly a developer and Linux system administrator.
 
-  [NYIST]: https://en.ustc.edu.cn/
+  [NYIST]: https://www.nyist.edu.cn/
 
 Operator of [NYIST Open Source Mirrors][NYIST Open Source Mirrors].
 
