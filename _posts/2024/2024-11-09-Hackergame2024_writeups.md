@@ -55,13 +55,13 @@ cat .flag
 
 `3A204`
 
-见[https://lug.ustc.edu.cn/wiki/sec/contest.html](https://lug.ustc.edu.cn/wiki/sec/contest.html)
+见 [https://lug.ustc.edu.cn/wiki/sec/contest.html](https://lug.ustc.edu.cn/wiki/sec/contest.html)
 
 #### 2.众所周知，Hackergame 共约 25 道题目。近五年（不含今年）举办的 Hackergame 中，题目数量最接近这个数字的那一届比赛里有多少人注册参加？
 
 `2682`
 
-见[https://lug.ustc.edu.cn/news/2019/12/hackergame-2019/](https://lug.ustc.edu.cn/wiki/sec/contest.html)
+见 [https://lug.ustc.edu.cn/news/2019/12/hackergame-2019/](https://lug.ustc.edu.cn/wiki/sec/contest.html)
 
 #### 3.Hackergame 2018 让哪个热门检索词成为了科大图书馆当月热搜第一？
 
@@ -73,13 +73,13 @@ cat .flag
 
 `336`
 
-见[https://www.usenix.org/system/files/usenixsecurity24_slides-ma-jinrui.pdf](https://lug.ustc.edu.cn/wiki/sec/contest.html)
+见 [https://www.usenix.org/system/files/usenixsecurity24_slides-ma-jinrui.pdf](https://lug.ustc.edu.cn/wiki/sec/contest.html)
 
 #### 5.10 月 18 日 Greg Kroah-Hartman 向 Linux 邮件列表提交的一个 patch 把大量开发者从 MAINTAINERS 文件中移除。这个 patch 被合并进 Linux mainline 的 commit id 是多少？
 
 `6e90b6`
 
-见(https://lore.kernel.org/all/769032f6-2f20-406c-99df-92acd2c1269a@metux.net/)[https://lug.ustc.edu.cn/wiki/sec/contest.html]
+见 [https://lore.kernel.org/all/769032f6-2f20-406c-99df-92acd2c1269a@metux.net/](https://lug.ustc.edu.cn/wiki/sec/contest.html)
 
 ```
 This is following the logic of commit
