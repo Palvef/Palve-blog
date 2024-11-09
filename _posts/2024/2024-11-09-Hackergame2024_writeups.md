@@ -4,7 +4,7 @@ tags: blog ctf hackergame2024
 ---
 
 
-## Hackergame2024 WP
+## Hackergame2024 非官方题解
 
 ### ~~废话~~
 
@@ -254,7 +254,7 @@ print("saved to output.txt")
 
 ```
 
-![image-20241103113028472](../../assets/img/image-20241103113028472.png)
+![image-20241103113028472](/assets/img/image-20241103113028472.png)
 
 为什么不是114154行 （😡
 
@@ -274,7 +274,7 @@ sqlmap -u "https://chal01-yh8m6qof.hack-challenge.lug.ustc.edu.cn:8443/view?conv
 
 对应的文章的uuid应该是`24052425-8f7e-4e97-bdc5-b10f13d9538d` `请详细解释以下名词： 水产养殖业中的现状`
 
-![image-20241103115531851](../../assets/img/image-20241103115531851.png)
+![image-20241103115531851](/assets/img/image-20241103115531851.png)
 
 ### Node.js is Web Scale（藏裤裆的flag
 
@@ -541,3 +541,69 @@ docker run --rm -u 1000:1000 -it --privileged -v /:/mnt:ro alpine
 exec su-exec root /bin/ash
 cat /mnt/flag
 ```
+
+### 零知识数独
+
+只会个第一问，简单粗暴的修改响应包然后就能拿到 香香软软的 flag
+
+```
+'use strict';
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+  [83],
+  {
+    5019: (e, i) => {
+      Object.defineProperty(i, '__esModule', { value: !0 }),
+        (i.BASE_LAYOUT = void 0),
+        (i.BASE_LAYOUT = [
+          [0, 1, 2, 3, 4, 5, 6, 7, 8],
+          [9, 10, 11, 12, 13, 14, 15, 16, 17],
+          [18, 19, 20, 21, 22, 23, 24, 25, 26],
+          [27, 28, 29, 30, 31, 32, 33, 34, 35],
+          [36, 37, 38, 39, 40, 41, 42, 43, 44],
+          [45, 46, 47, 48, 49, 50, 51, 52, 53],
+          [54, 55, 56, 57, 58, 59, 60, 61, 62],
+          [63, 64, 65, 66, 67, 68, 69, 70, 71],
+          [72, 73, 74, 75, 76, 77, 78, 79, 80],
+        ]);
+    },
+    2042: (e, i) => {
+      Object.defineProperty(i, '__esModule', { value: !0 }),
+        (i.DIFFICULTY_LEVELS = void 0),
+        (i.DIFFICULTY_LEVELS = ['easy', 'medium', 'hard', 'expert']);
+    },
+    5180: (e, i) => {
+      Object.defineProperty(i, '__esModule', { value: !0 }),
+        (i.SEEDS = void 0),
+        (i.SEEDS = [
+          {
+            puzzle:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-',
+            solution:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            difficulty: 'easy',
+          },
+          {
+            puzzle:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-',
+            solution:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            difficulty: 'medium',
+          },
+          {
+            puzzle:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-',
+            solution:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            difficulty: 'hard',
+          },
+          {
+            puzzle:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-',
+            solution:
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            difficulty: 'expert',
+          },
+        ]);
+    },
+```
+
