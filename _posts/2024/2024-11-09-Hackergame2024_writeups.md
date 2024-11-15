@@ -4,9 +4,9 @@ tags: blog ctf hackergame2024
 ---
 
 
-## Hackergame2024 非官方题解
+# Hackergame2024 非官方题解
 
-### ~~废话~~
+## ~~废话~~
 
 今年的 Hackergame 鸽了，撞上了强网，~~被打的找不到北~~。按照惯例，今年也简单的做一下吧
 
@@ -30,7 +30,7 @@ tags: blog ctf hackergame2024
 
 ​	[2018](https://github.com/ustclug/hackergame2018-writeups/)
 
-### 签到
+## 签到
 
 ```
 /?pass=true
@@ -38,7 +38,7 @@ tags: blog ctf hackergame2024
 
 签到当然是签到，参考历年的做法，先疯狂点击`等不及了，马上启动!`然后改 `false` 为 `true` 就可得 flag
 
-### 喜欢做签到的 CTFer 你们好呀
+## 喜欢做签到的 CTFer 你们好呀
 
 ```bash
 env
@@ -49,33 +49,33 @@ cat .flag
 
 当时先做出来的是 `Checkin Again & Again` ，简单粗暴的 `ls -alh` 就看到了flag。`Checkin Again` 其实是实在找不到在哪，遂看起了网页源代码，瞎拖看到了 `NixOS` ，狂拍脑袋就得到了第一问的 flag。
 
-### 猫咪问答（Hackergame 十周年纪念版）
+## 猫咪问答（Hackergame 十周年纪念版）
 
-#### 1.在 Hackergame 2015 比赛开始前一天晚上开展的赛前讲座是在哪个教室举行的？
+### 1.在 Hackergame 2015 比赛开始前一天晚上开展的赛前讲座是在哪个教室举行的？
 
 `3A204`
 
 见 [https://lug.ustc.edu.cn/wiki/sec/contest.html](https://lug.ustc.edu.cn/wiki/sec/contest.html)
 
-#### 2.众所周知，Hackergame 共约 25 道题目。近五年（不含今年）举办的 Hackergame 中，题目数量最接近这个数字的那一届比赛里有多少人注册参加？
+### 2.众所周知，Hackergame 共约 25 道题目。近五年（不含今年）举办的 Hackergame 中，题目数量最接近这个数字的那一届比赛里有多少人注册参加？
 
 `2682`
 
 见 [https://lug.ustc.edu.cn/news/2019/12/hackergame-2019/](https://lug.ustc.edu.cn/wiki/sec/contest.html)
 
-#### 3.Hackergame 2018 让哪个热门检索词成为了科大图书馆当月热搜第一？
+### 3.Hackergame 2018 让哪个热门检索词成为了科大图书馆当月热搜第一？
 
 `程序员的自我修养`
 
 见 [花絮](https://github.com/ustclug/hackergame2018-writeups/blob/master/misc/others.md)
 
-#### 4.在今年的 USENIX Security 学术会议上中国科学技术大学发表了一篇关于电子邮件伪造攻击的论文，在论文中作者提出了 6 种攻击方法，并在多少个电子邮件服务提供商及客户端的组合上进行了实验？
+### 4.在今年的 USENIX Security 学术会议上中国科学技术大学发表了一篇关于电子邮件伪造攻击的论文，在论文中作者提出了 6 种攻击方法，并在多少个电子邮件服务提供商及客户端的组合上进行了实验？
 
 `336`
 
 见 [https://www.usenix.org/system/files/usenixsecurity24_slides-ma-jinrui.pdf](https://lug.ustc.edu.cn/wiki/sec/contest.html)
 
-#### 5.10 月 18 日 Greg Kroah-Hartman 向 Linux 邮件列表提交的一个 patch 把大量开发者从 MAINTAINERS 文件中移除。这个 patch 被合并进 Linux mainline 的 commit id 是多少？
+### 5. 10 月 18 日 Greg Kroah-Hartman 向 Linux 邮件列表提交的一个 patch 把大量开发者从 MAINTAINERS 文件中移除。这个 patch 被合并进 Linux mainline 的 commit id 是多少？
 
 `6e90b6`
 
@@ -86,7 +86,7 @@ This is following the logic of commit
 6e90b675cf942e50c70e8394dfb5862975c3b3b2.
 ```
 
-#### 6.大语言模型会把输入分解为一个一个的 token 后继续计算，请问这个网页的 HTML 源代码会被 Meta 的 Llama 3 70B 模型的 tokenizer 分解为多少个 token？
+### 6.大语言模型会把输入分解为一个一个的 token 后继续计算，请问这个网页的 HTML 源代码会被 Meta 的 Llama 3 70B 模型的 tokenizer 分解为多少个 token？
 
 `1833`
 
@@ -94,19 +94,19 @@ This is following the logic of commit
 
 
 
-### 打不开的盒
+## 打不开的盒
 
 找个在线查看的网址，切割即可拿到flag
 
 
 
-### 每日论文太多了！
+## 每日论文太多了！
 
 下载PDF后全局搜 `flag` ，会发现有个 `flag here` ，编辑 PDF ，给那个图片挪开就能看到 flag
 
 
 
-### 比大小王
+## 比大小王
 
 ~~我可是比大小高手~~ 通过对题目请求的抓包可以发现，每次选择后会有 200 毫秒不能操作，可以尝试劫持响应包来解这一限制。但是当修改完响应包再次提交答案之后，后端会返回`检测到异常提交` 并且不返回任何报错（挠头。
 
@@ -169,7 +169,7 @@ function chooseAnswer(choice) {
 
 
 
-### 旅行照片 4.0
+## 旅行照片 4.0
 
 第一问
 
@@ -193,9 +193,9 @@ function chooseAnswer(choice) {
 
 
 
-### PaoluGPT ~~跑路GPT~~
+## PaoluGPT ~~跑路GPT~~
 
-#### 千里挑一
+### 千里挑一
 
 ~~众所周知，~~这么多 chat history 里找那个 flag 不现实，那就简单粗暴的给所有页面爬下来搜flag
 
@@ -258,7 +258,7 @@ print("saved to output.txt")
 
 为什么不是114154行 （😡
 
-####  窥视未知
+### 窥视未知
 
 当时挠破脑袋都没想到未知到底未知到哪了，看完附件之后恍然~~大雾~~ （确诊为未为注意力不集中导致的
 
@@ -276,7 +276,7 @@ sqlmap -u "https://chal01-yh8m6qof.hack-challenge.lug.ustc.edu.cn:8443/view?conv
 
 ![image-20241103115531851](/assets/img/image-20241103115531851.png)
 
-### Node.js is Web Scale（藏裤裆的flag
+## Node.js is Web Scale（藏裤裆的flag
 
 这个题考的是 **Node.js 原型链污染** ，阅读题目源码后，设置key为 `__proto__.cmd` ，value是`cat flag`
 
@@ -284,7 +284,7 @@ sqlmap -u "https://chal01-yh8m6qof.hack-challenge.lug.ustc.edu.cn:8443/view?conv
 
 
 
-### 强大的正则表达式（藏裤裆的flag
+## 强大的正则表达式（藏裤裆的flag
 
 第一问
 
@@ -298,7 +298,7 @@ sqlmap -u "https://chal01-yh8m6qof.hack-challenge.lug.ustc.edu.cn:8443/view?conv
 
 ### 惜字如金3.0
 
-#### 题目A
+### 题目A
 
 最简单了，填空题
 
@@ -404,15 +404,15 @@ def post() -> flask.Response:
 
 
 
-### 优雅的不等式（藏裤裆的flag
+## 优雅的不等式（藏裤裆的flag
 
-#### Easy
+### Easy
 
 偷懒问 AI 直接得到表达式 `4*((1-x**2)**(1/2)-(1-x**2))`
 
 
 
-### 无法获得的秘密 （藏裤裆的flag
+## 无法获得的秘密 （藏裤裆的flag
 
 之前在网上冲浪看到过一个用二维码来传输数据的帖子，恰好可以用在这道题上
 
@@ -422,7 +422,7 @@ def post() -> flask.Response:
 
 
 
-### ZFS （藏裤裆的flag、花絮
+## ZFS （藏裤裆的flag、花絮
 
 作为 zfs ~~资深玩家~~，那么恢复几个文件肯定是绰绰有余，先给对应的镜像拖下来挂载到 mirrors上（敲重点，~~后边要考~~）。拿到对应的 pool 之后先查看对应的快照 `zfs list -t snapshot` ，恢复其中的快照之后还是没看到对应的文件（挠头
 
@@ -455,10 +455,10 @@ Palve, [2024/11/2 21:41]
 Palve, [2024/11/2 21:41]
 我uuu的源呢
 
-ξ | Ver 1, [2024/11/2 21:41]
+群友A, [2024/11/2 21:41]
 🤣🤣🤣
 
-Harry, [2024/11/2 21:42]
+群友B, [2024/11/2 21:42]
 挂上了吗？
 
 Palve, [2024/11/2 21:43]
@@ -467,7 +467,7 @@ Palve, [2024/11/2 21:43]
 Palve, [2024/11/2 21:43]
 为什么会掉mount point
 
-Haruhi, [2024/11/2 21:44]
+群友C, [2024/11/2 21:44]
 因为你在老的inode上面
 
 Palve, [2024/11/2 21:46]
@@ -476,10 +476,10 @@ Palve, [2024/11/2 21:46]
 Palve, [2024/11/2 21:47]
 那会做 hackergame 的时候卸载 hg2024 这个 pool 时错误的下意识执行了 sudo zfs unmount -a
 
-Keyu Tao, [2024/11/2 21:48]
+群友D, [2024/11/2 21:48]
 不是，你用 mirrors 服务器做 hg 题目吗
 
-ξ | Ver 1, [2024/11/2 21:49]
+群友A, [2024/11/2 21:49]
 怎么大家都这么坏人
 
 Palve, [2024/11/2 21:49]
@@ -488,7 +488,7 @@ Palve, [2024/11/2 21:49]
 Palve, [2024/11/2 21:50]
 手头有zfs模块的就剩mirrors了
 
-Haruhi, [2024/11/2 21:50]
+群友C, [2024/11/2 21:50]
 不是，你用 mirrors 服务器做 hg 题目吗
 
 Palve, [2024/11/2 21:50]
@@ -497,13 +497,13 @@ Palve, [2024/11/2 21:50]
 Palve, [2024/11/2 21:50]
 还有其他妙妙二进制
 
-𝖎𝕭𝖚𝖌 🌞, [2024/11/2 21:50]
+群友E, [2024/11/2 21:50]
 编译东西还好吧
 
-𝖎𝕭𝖚𝖌 🌞, [2024/11/2 21:51]
+群友E, [2024/11/2 21:51]
 你拿这个 zfs 直接做题，还 umount -a。。。
 
-𝖎𝕭𝖚𝖌 🌞, [2024/11/2 21:51]
+群友E, [2024/11/2 21:51]
 艺高人胆大，但是就怕一不小心就翻车了
 
 Palve, [2024/11/2 21:51]
@@ -512,7 +512,7 @@ Palve, [2024/11/2 21:51]
 Palve, [2024/11/2 21:52]
 最终只有这一个 repo 被成功 unmount
 
-𝖎𝕭𝖚𝖌 🌞, [2024/11/2 21:53]
+群友E, [2024/11/2 21:53]
 《hg 如何让几百公里外的镜像站体面》
 
 
@@ -520,7 +520,7 @@ Palve, [2024/11/2 21:52]
 
 
 
-### Docker for Everyone Plus  （藏裤裆的flag
+## Docker for Everyone Plus  （藏裤裆的flag
 
 第一问简单，Windows 用户只需要一个 xshell 即可解决使用 ZMODEM 传输文件的问题
 
@@ -542,7 +542,7 @@ exec su-exec root /bin/ash
 cat /mnt/flag
 ```
 
-### 零知识数独
+## 零知识数独
 
 只会个第一问，简单粗暴的修改响应包然后就能拿到 香香软软的 flag
 
