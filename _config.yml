@@ -49,9 +49,9 @@ search_provider          : algolia # lunr (default), algolia, google
 lunr:
   search_within_pages    : # true, false (default)
 algolia:
-  application_id         : "2WMDDM32ZV" # YOUR_APPLICATION_ID
-  index_name             : "palve_blog" # YOUR_INDEX_NAME
-  search_only_api_key    : "cccc965a43817f54bcc851916d54df7e" # YOUR_SEARCH_ONLY_API_KEY
+  application_id         : "KWFF82AV02" # YOUR_APPLICATION_ID
+  index_name             : "Palve_blog" # YOUR_INDEX_NAME
+  search_only_api_key    : "35961cf079cd7e38ef0bca4ed5e20342" # YOUR_SEARCH_ONLY_API_KEY
   powered_by             : true # true (default), false
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
