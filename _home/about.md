@@ -77,5 +77,3 @@ Python, C, C++ and Go.
     - **Vulnerability Scanning**: AWVS, Nmap, Sqlmap  
     - **Web Analysis**: Burp Suite, Wireshark, FireBug  
     - **Code Auditing**: Fortify, Seay  
-
----
