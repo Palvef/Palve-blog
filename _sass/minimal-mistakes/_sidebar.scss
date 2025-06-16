@@ -79,23 +79,10 @@
     position: sticky;
     top: 2em;
     float: inline-end;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 2em;
-    float: inline-end;
     width: $right-sidebar-width-narrow;
     margin-inline-end: -1 * $right-sidebar-width-narrow;
     padding-inline-start: 1em;
     z-index: 10;
-    
-    html, body, #main {
-      overflow: visible !important;
-    }
-    
-    /* 修复 sticky 失效问题，确保父级没有 overflow 限制 */
-    html, body, #main {
-      overflow: visible !important;
-    }
 
     &.sticky {
       @include clearfix();

@@ -39,7 +39,6 @@ $(document).ready(function () {
     speedAsDuration: true,
     durationMax: 500,
   });
-
   // Gumshoe scroll spy init
   if ($("nav.toc").length > 0) {
     var spy = new Gumshoe("nav.toc a", {
@@ -52,40 +51,97 @@ $(document).ready(function () {
       nestedClass: "active", // applied to the parent items
 
       // Offset & reflow
-      offset: 20, // how far from the top of the page to activate a content area
+      offset: function () {
+        return Math.max(50, window.innerHeight * 0.1);
+      },
       reflow: true, // if true, listen for reflows
 
       // Event support
       events: true, // if true, emit custom events
     });
-  }
-
-  // Auto scroll sticky ToC with content
+  } // Auto scroll sticky ToC with content - improved version
   const scrollTocToContent = function (event) {
     var target = event.target;
-    var scrollOptions = { behavior: "auto", block: "nearest", inline: "start" };
+    var tocContainer = document.querySelector(
+      "aside.sidebar__right.sticky .toc .toc__menu"
+    );
 
-    var tocElement = document.querySelector("aside.sidebar__right.sticky");
-    if (!tocElement) return;
-    if (window.getComputedStyle(tocElement).position !== "sticky") return;
+    if (!tocContainer || !target) return;
 
-    if (target.parentElement.classList.contains("toc__menu") && target == target.parentElement.firstElementChild) {
-      // Scroll to top instead
-      document.querySelector("nav.toc header").scrollIntoView(scrollOptions);
-    } else {
-      target.scrollIntoView(scrollOptions);
+    var tocLink = tocContainer.querySelector('a[href="#' + target.id + '"]');
+    if (!tocLink) return;
+
+    var containerRect = tocContainer.getBoundingClientRect();
+    var targetRect = tocLink.getBoundingClientRect();
+
+    var needsScroll =
+      targetRect.top < containerRect.top + 50 ||
+      targetRect.bottom > containerRect.bottom - 50;
+
+    if (needsScroll) {
+      var scrollTop = tocContainer.scrollTop;
+      var offsetTop = tocLink.offsetTop - tocContainer.offsetTop;
+      var containerHeight = tocContainer.clientHeight;
+      var targetHeight = tocLink.offsetHeight;
+
+      var newScrollTop = offsetTop - containerHeight / 3;
+
+      tocContainer.scrollTo({
+        top: Math.max(0, newScrollTop),
+        behavior: "smooth",
+      });
     }
   };
 
-  // Has issues on Firefox, whitelist Chrome for now
-  if (!!window.chrome) {
-    document.addEventListener("gumshoeActivate", scrollTocToContent);
-  }
+  document.addEventListener("gumshoeActivate", scrollTocToContent);
+
+  let scrollTimeout;
+  window.addEventListener("scroll", function () {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function () {
+      const headings = document.querySelectorAll(
+        ".page__content h1[id], .page__content h2[id], .page__content h3[id], .page__content h4[id], .page__content h5[id], .page__content h6[id]"
+      );
+      const viewportTop = window.pageYOffset + window.innerHeight * 0.1;
+      const viewportBottom = window.pageYOffset + window.innerHeight * 0.9;
+
+      let activeHeading = null;
+      headings.forEach(function (heading) {
+        const rect = heading.getBoundingClientRect();
+        const absoluteTop = window.pageYOffset + rect.top;
+
+        if (absoluteTop <= viewportTop + 100) {
+          activeHeading = heading;
+        }
+      });
+
+      if (activeHeading) {
+        const tocContainer = document.querySelector(
+          "aside.sidebar__right.sticky .toc .toc__menu"
+        );
+        if (tocContainer) {
+          tocContainer.querySelectorAll("a").forEach((link) => {
+            link.parentElement.classList.remove("active");
+          });
+
+          const activeLink = tocContainer.querySelector(
+            'a[href="#' + activeHeading.id + '"]'
+          );
+          if (activeLink) {
+            activeLink.parentElement.classList.add("active");
+            scrollTocToContent({ target: activeHeading });
+          }
+        }
+      }
+    }, 50);
+  });
 
   // add lightbox class to all image links
   $(
     "a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif'],a[href$='.webp']"
-  ).has("> img").addClass("image-popup");
+  )
+    .has("> img")
+    .addClass("image-popup");
 
   // Magnific-Popup options
   $(".image-popup").magnificPopup({
@@ -199,9 +255,9 @@ $(document).ready(function () {
       if (thisButton.interval !== null) {
         clearInterval(thisButton.interval);
       }
-      thisButton.classList.add('copied');
+      thisButton.classList.add("copied");
       thisButton.interval = setTimeout(function () {
-        thisButton.classList.remove('copied');
+        thisButton.classList.remove("copied");
         clearInterval(thisButton.interval);
         thisButton.interval = null;
       }, 1500);
@@ -222,7 +278,8 @@ $(document).ready(function () {
         var copyButton = document.createElement("button");
         copyButton.title = "Copy to clipboard";
         copyButton.className = "clipboard-copy-button";
-        copyButton.innerHTML = '<span class="sr-only">Copy code</span><i class="far fa-fw fa-copy"></i><i class="fas fa-fw fa-check copied"></i>';
+        copyButton.innerHTML =
+          '<span class="sr-only">Copy code</span><i class="far fa-fw fa-copy"></i><i class="fas fa-fw fa-check copied"></i>';
         copyButton.addEventListener("click", copyButtonEventListener);
         container.prepend(copyButton);
       });
