@@ -3,7 +3,7 @@ title: "使用 njs 实现 rsync 排队功能"
 date: 2026-09-09 12:00:00 +0800
 lang: zh
 translation_id: nginx-njs-rsync-queue
-permalink: /2026/09/nginx-njs-rsync-queue/
+permalink: /zh/2026/09/nginx-njs-rsync-queue/
 tags: [NGINX, njs, rsync, Mirrors, Linux]
 ---
 

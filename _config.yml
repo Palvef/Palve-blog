@@ -8,7 +8,7 @@ repository: "Palvef/Palve-blog"
 homepage_url: "https://www.palve.moe"
 google_analytics: "G-Y7KVPN8R2K"
 
-lang: zh-CN
+lang: en
 timezone: "Asia/Shanghai"
 permalink: /:year/:month/:slug/
 excerpt_separator: "\n\n"
@@ -51,20 +51,20 @@ defaults:
     values:
       layout: post
   - scope:
-      path: "_posts/zh"
-    values:
-      layout: post
-      lang: zh
-  - scope:
       path: "_posts/en"
     values:
       layout: post
       lang: en
   - scope:
-      path: "en"
+      path: "_posts/zh"
     values:
-      lang: en
+      layout: post
+      lang: zh
+  - scope:
+      path: "zh"
+    values:
+      lang: zh
   - scope:
       path: ""
     values:
-      lang: zh
+      lang: en

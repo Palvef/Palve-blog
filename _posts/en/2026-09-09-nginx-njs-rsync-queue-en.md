@@ -3,7 +3,9 @@ title: "Implementing an rsync Queue with NGINX njs"
 date: 2026-09-09 12:00:00 +0800
 lang: en
 translation_id: nginx-njs-rsync-queue
-permalink: /en/2026/09/nginx-njs-rsync-queue/
+permalink: /2026/09/nginx-njs-rsync-queue/
+redirect_from:
+  - /en/2026/09/nginx-njs-rsync-queue/
 tags: [NGINX, njs, rsync, Mirrors, Linux]
 ---
 

@@ -3,9 +3,11 @@ title: "Clean Break"
 date: 2026-11-18 20:00:00 +0800
 lang: en
 translation_id: severance
-permalink: /en/2026/11/severance/
+permalink: /2026/11/severance/
 redirect_from:
+  - /en/2026/11/severance/
   - /en/2026/10/severance/
+  - /2026/10/severance/
 tags: [Essay, Reflection]
 ---
 

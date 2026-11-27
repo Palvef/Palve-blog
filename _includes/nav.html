@@ -1,12 +1,12 @@
-{% assign current_lang = page.lang | default: "zh" %}
-{% if current_lang == "en" %}
-  {% assign nav_items = site.data.settings.nav_en %}
-  {% assign target_lang = "zh" %}
-  {% assign fallback_switch_url = "/" %}
-{% else %}
+{% assign current_lang = page.lang | default: "en" %}
+{% if current_lang == "zh" %}
   {% assign nav_items = site.data.settings.nav_zh %}
   {% assign target_lang = "en" %}
-  {% assign fallback_switch_url = "/en/" %}
+  {% assign fallback_switch_url = "/" %}
+{% else %}
+  {% assign nav_items = site.data.settings.nav_en %}
+  {% assign target_lang = "zh" %}
+  {% assign fallback_switch_url = "/zh/" %}
 {% endif %}
 
 {% assign switch_url = fallback_switch_url %}

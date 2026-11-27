@@ -3,7 +3,7 @@ title: "Dell SC200 异常断电恢复记录"
 date: 2026-10-30 12:00:00 +0800
 lang: zh
 translation_id: dell-sc200-recovery
-permalink: /2026/10/dell-sc200-power-loss-recovery/
+permalink: /zh/2026/10/dell-sc200-power-loss-recovery/
 tags: [Dell, SC200, Storage, Hardware, Troubleshooting]
 ---
 

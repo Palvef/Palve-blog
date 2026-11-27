@@ -3,11 +3,13 @@ title: "Hackergame 2024 Unofficial Writeups"
 date: 2024-11-09 12:00:00 +0800
 lang: en
 translation_id: hackergame-2024
-permalink: /en/2024/11/Hackergame2024_writeups/
+permalink: /2024/11/Hackergame2024_writeups/
+redirect_from:
+  - /en/2024/11/Hackergame2024_writeups/
 tags: [CTF, Hackergame, ZFS, Security]
 ---
 
-> This is an English overview of my Hackergame 2024 writeups. For the complete challenge logs, chat transcripts, and scripts, see the [original Chinese version](/2024/11/Hackergame2024_writeups/).
+> This is an English overview of my Hackergame 2024 writeups. For the complete challenge logs, chat transcripts, and scripts, see the [original Chinese version](/zh/2024/11/Hackergame2024_writeups/).
 
 ## Overview
 

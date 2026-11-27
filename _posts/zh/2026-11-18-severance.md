@@ -3,9 +3,7 @@ title: "切割"
 date: 2026-11-18 20:00:00 +0800
 lang: zh
 translation_id: severance
-permalink: /2026/11/severance/
-redirect_from:
-  - /2026/10/severance/
+permalink: /zh/2026/11/severance/
 tags: [Essay, Reflection]
 ---
 

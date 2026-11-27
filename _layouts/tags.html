@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign current_lang = page.lang | default: "zh" %}
+{% assign current_lang = page.lang | default: "en" %}
 {% assign lang_posts = site.posts | where: "lang", current_lang %}
 {% assign all_tags_raw = "" | split: "" %}
 {% for post in lang_posts %}

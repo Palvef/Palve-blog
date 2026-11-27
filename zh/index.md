@@ -1,7 +1,7 @@
 ---
 layout: home
 title: "Palve"
-lang: en
+lang: zh
 translation_id: home
-permalink: /en/
+permalink: /zh/
 ---

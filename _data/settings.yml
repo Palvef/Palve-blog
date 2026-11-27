@@ -1,9 +1,9 @@
-nav_zh:
-  - { name: "归档", url: "/archives/" }
-  - { name: "标签", url: "/tags/" }
-  - { name: "主页", url: "https://www.palve.moe", external: true }
-
 nav_en:
-  - { name: "Archives", url: "/en/archives/" }
-  - { name: "Tags", url: "/en/tags/" }
-  - { name: "Me", url: "https://www.palve.moe", external: true }
+  - { name: "Archives", url: "/archives/" }
+  - { name: "Tags", url: "/tags/" }
+  - { name: "Me", url: "https://www.palve.moe/", external: true }
+
+nav_zh:
+  - { name: "归档", url: "/zh/archives/" }
+  - { name: "标签", url: "/zh/tags/" }
+  - { name: "主页", url: "https://www.palve.moe/zh/", external: true }

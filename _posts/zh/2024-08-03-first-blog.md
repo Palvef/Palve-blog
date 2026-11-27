@@ -3,7 +3,7 @@ title: "Palve 的第一篇博客"
 date: 2024-08-03 12:00:00 +0800
 lang: zh
 translation_id: first-blog
-permalink: /2024/08/first-blog/
+permalink: /zh/2024/08/first-blog/
 tags: [Blog]
 ---
 

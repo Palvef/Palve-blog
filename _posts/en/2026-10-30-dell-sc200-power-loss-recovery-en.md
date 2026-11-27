@@ -3,7 +3,9 @@ title: "Recovering a Dell SC200 After Power Loss"
 date: 2026-10-30 12:00:00 +0800
 lang: en
 translation_id: dell-sc200-recovery
-permalink: /en/2026/10/dell-sc200-power-loss-recovery/
+permalink: /2026/10/dell-sc200-power-loss-recovery/
+redirect_from:
+  - /en/2026/10/dell-sc200-power-loss-recovery/
 tags: [Dell, SC200, Storage, Hardware, Troubleshooting]
 ---
 

@@ -1,12 +1,12 @@
-{% assign current_lang = page.lang | default: "zh" %}
-{% if current_lang == "en" %}
-  {% assign home_url = "/en/" %}
-  {% assign sub_text = site.subtitle %}
-  {% assign email_label = "Verify & Reveal Email" %}
-{% else %}
-  {% assign home_url = "/" %}
+{% assign current_lang = page.lang | default: "en" %}
+{% if current_lang == "zh" %}
+  {% assign home_url = "/zh/" %}
   {% assign sub_text = site.subtitle_zh %}
   {% assign email_label = "验证并查看邮箱" %}
+{% else %}
+  {% assign home_url = "/" %}
+  {% assign sub_text = site.subtitle %}
+  {% assign email_label = "Verify & Reveal Email" %}
 {% endif %}
 
 <div class="header">

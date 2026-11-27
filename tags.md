@@ -1,7 +1,9 @@
 ---
 layout: tags
-title: "标签"
-lang: zh
+title: "Tags"
+lang: en
 translation_id: tags
 permalink: /tags/
+redirect_from:
+  - /en/tags/
 ---

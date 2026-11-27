@@ -2,17 +2,17 @@
 layout: default
 ---
 
-{% assign current_lang = page.lang | default: "zh" %}
-{% if current_lang == "en" %}
-  {% assign other_lang = "zh" %}
-  {% assign tags_base = "/en/tags/" %}
-  {% assign toc_label = "On this page" %}
-  {% assign switch_label = "阅读中文版" %}
-{% else %}
+{% assign current_lang = page.lang | default: "en" %}
+{% if current_lang == "zh" %}
   {% assign other_lang = "en" %}
-  {% assign tags_base = "/tags/" %}
+  {% assign tags_base = "/zh/tags/" %}
   {% assign toc_label = "章节目录" %}
   {% assign switch_label = "Read in English" %}
+{% else %}
+  {% assign other_lang = "zh" %}
+  {% assign tags_base = "/tags/" %}
+  {% assign toc_label = "On this page" %}
+  {% assign switch_label = "阅读中文版" %}
 {% endif %}
 
 {% assign counterpart = nil %}

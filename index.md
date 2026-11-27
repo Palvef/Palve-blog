@@ -1,7 +1,9 @@
 ---
 layout: home
 title: "Palve"
-lang: zh
+lang: en
 translation_id: home
 permalink: /
+redirect_from:
+  - /en/
 ---

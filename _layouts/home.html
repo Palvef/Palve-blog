@@ -2,10 +2,10 @@
 layout: default
 ---
 
-{% assign current_lang = page.lang | default: "zh" %}
+{% assign current_lang = page.lang | default: "en" %}
 {% assign lang_posts = site.posts | where: "lang", current_lang %}
-{% if current_lang == "en" %}
-  {% assign tags_base = "/en/tags/" %}
+{% if current_lang == "zh" %}
+  {% assign tags_base = "/zh/tags/" %}
 {% else %}
   {% assign tags_base = "/tags/" %}
 {% endif %}
