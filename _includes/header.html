@@ -13,7 +13,8 @@
     <div class="site_title_container">
         <div class="site_title">
             <h1>
-                <a href="{{ home_url | relative_url }}">
+                <a href="{{ home_url | relative_url }}" class="brand-lockup">
+                    <img src="{{ '/assets/favicon.svg' | relative_url }}" alt="" class="brand-mark" width="28" height="28" />
                     <span>{{ site.title }}</span>
                 </a>
             </h1>

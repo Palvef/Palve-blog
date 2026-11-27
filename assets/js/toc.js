@@ -51,7 +51,7 @@
   });
 
   function syncOpenState() {
-    if (window.innerWidth >= 1260) {
+    if (window.innerWidth >= 1080) {
       details.setAttribute('open', 'open');
     } else {
       details.removeAttribute('open');
@@ -88,5 +88,6 @@
     });
   }
 
+  document.body.classList.add('has-post-toc');
   container.classList.add('is-ready');
 })();

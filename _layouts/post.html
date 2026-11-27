@@ -23,39 +23,41 @@ layout: default
   {% endif %}
 {% endif %}
 
-<aside id="post-toc-left" class="post-toc-left" aria-label="{{ toc_label }}">
-    <details open>
-        <summary class="toc-toggle">{{ toc_label }}</summary>
-        <ul class="toc-list"></ul>
-    </details>
-</aside>
-
 <div class="content">
-    <div class="post_page">
-        <div class="post">
-            <div class="post_title post_detail_title">
-                <h2><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h2>
-                <span class="date">{{ page.date | date: "%Y.%m.%d" }}</span>
-                {% if counterpart %}
-                <a class="post_lang_link" href="{{ counterpart.url | relative_url }}">{{ switch_label }}</a>
-                {% endif %}
-            </div>
-            <div class="post_content markdown">
-                {{ content }}
-            </div>
-            <div class="post_footer">
-                {% if page.tags and page.tags.size > 0 %}
-                <div class="meta">
-                    <div class="info">
-                        <span class="field tags">
-                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.083 15.2l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zm0-4.7l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm-7.569-9.191l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0zM12 3.332L5.887 7 12 10.668 18.113 7 12 3.332z"/></svg>
-                            {% for tag in page.tags %}
-                            <a href="{{ tags_base | relative_url }}#tag-{{ tag | slugify }}">{{ tag }}</a>
-                            {% endfor %}
-                        </span>
-                    </div>
+    <div class="post_layout">
+        <aside id="post-toc-left" class="post-toc-left" aria-label="{{ toc_label }}">
+            <details open>
+                <summary class="toc-toggle">{{ toc_label }}</summary>
+                <ul class="toc-list"></ul>
+            </details>
+        </aside>
+
+        <div class="post_page">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h2><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h2>
+                    <span class="date">{{ page.date | date: "%Y.%m.%d" }}</span>
+                    {% if counterpart %}
+                    <a class="post_lang_link" href="{{ counterpart.url | relative_url }}">{{ switch_label }}</a>
+                    {% endif %}
                 </div>
-                {% endif %}
+                <div class="post_content markdown">
+                    {{ content }}
+                </div>
+                <div class="post_footer">
+                    {% if page.tags and page.tags.size > 0 %}
+                    <div class="meta">
+                        <div class="info">
+                            <span class="field tags">
+                                <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.083 15.2l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zm0-4.7l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm-7.569-9.191l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0zM12 3.332L5.887 7 12 10.668 18.113 7 12 3.332z"/></svg>
+                                {% for tag in page.tags %}
+                                <a href="{{ tags_base | relative_url }}#tag-{{ tag | slugify }}">{{ tag }}</a>
+                                {% endfor %}
+                            </span>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>

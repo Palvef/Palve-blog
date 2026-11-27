@@ -1,6 +1,23 @@
 'use strict';
 
 (function () {
+  var bar = document.getElementById('reading-progress');
+  if (bar) {
+    if (document.body.classList.contains('is-post-page')) {
+      bar.classList.add('is-reading');
+      function updateReadingBar() {
+        var top = window.scrollY || document.documentElement.scrollTop;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var ratio = max > 0 ? Math.min(1, Math.max(0, top / max)) : 0;
+        bar.style.transform = 'scaleX(' + ratio + ')';
+      }
+      window.addEventListener('scroll', updateReadingBar, { passive: true });
+      updateReadingBar();
+    } else {
+      bar.classList.add('is-loading');
+    }
+  }
+
   var bt = document.getElementById('back_to_top');
   if (bt) {
     window.addEventListener('scroll', function () {

@@ -115,21 +115,21 @@
 
     var isEn = (document.documentElement.lang || '').toLowerCase().indexOf('en') === 0;
     var i18n = isEn ? {
-      title: 'Email Verification',
-      desc: 'Complete a brief browser Proof-of-Work (SHA-256) challenge to reveal the email address.',
-      start: 'Verify & Reveal',
-      working: 'Computing SHA-256 PoW…',
-      progress: function (h, ms) { return 'Solving PoW: ' + h.toLocaleString() + ' hashes (' + (ms / 1000).toFixed(1) + 's)'; },
-      verified: function (n, ms) { return 'Verified in ' + (ms / 1000).toFixed(2) + 's (nonce ' + n + ').'; },
+      title: 'Email',
+      desc: 'Click below to verify and reveal the email address.',
+      start: 'Reveal Email',
+      working: 'Verifying…',
+      progress: function (h, ms) { return 'Verifying… ' + h.toLocaleString() + ' (' + (ms / 1000).toFixed(1) + 's)'; },
+      verified: function (n, ms) { return 'Verified (' + (ms / 1000).toFixed(2) + 's)'; },
       copy: 'Copy',
       copied: 'Copied'
     } : {
-      title: '邮箱验证',
-      desc: '为防止爬虫采集，需在浏览器本地完成一次轻量 SHA-256 工作量证明（PoW）后显示邮箱地址。',
-      start: '开始验证并显示',
-      working: '正在执行 SHA-256 计算…',
-      progress: function (h, ms) { return '计算中：已完成 ' + h.toLocaleString() + ' 次哈希（' + (ms / 1000).toFixed(1) + 's）'; },
-      verified: function (n, ms) { return '验证通过，耗时 ' + (ms / 1000).toFixed(2) + 's（nonce ' + n + '）。'; },
+      title: '邮箱',
+      desc: '点击下方按钮完成验证并显示邮箱地址。',
+      start: '显示邮箱',
+      working: '验证中…',
+      progress: function (h, ms) { return '验证中… ' + h.toLocaleString() + '（' + (ms / 1000).toFixed(1) + 's）'; },
+      verified: function (n, ms) { return '验证通过（' + (ms / 1000).toFixed(2) + 's）'; },
       copy: '复制',
       copied: '已复制'
     };

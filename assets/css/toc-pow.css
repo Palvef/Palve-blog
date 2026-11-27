@@ -1,5 +1,7 @@
-/* Scoped additions ONLY for inline icons, Left Sticky Chapter TOC, Tag index, and PoW Email Dialog.
-   Zozo default CSS (normalize.css + zozo.css + highlight.css) remains unmodified. */
+/* Scoped refinements:
+   - Distinct Palve editorial header, subtle animations, and reading progress bar
+   - Seamless integrated Left TOC column inside the post canvas (no floating box in outer void)
+   - PoW Email Dialog & tag archive layout */
 
 .icon-svg {
   display: inline-block;
@@ -9,30 +11,162 @@
   fill: currentColor;
 }
 
-/* Fix site_title width for "Palve" without breaking Zozo layout */
-.header .site_title_container .site_title a {
-  width: auto;
+/* Smooth top page-load & reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: #18181b;
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity 0.25s ease;
 }
 
+.reading-progress.is-loading {
+  opacity: 1;
+  animation: palveTopLoad 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reading-progress.is-reading {
+  opacity: 0.85;
+}
+
+@keyframes palveTopLoad {
+  0% { transform: scaleX(0.08); opacity: 0.9; }
+  75% { transform: scaleX(0.92); opacity: 0.9; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+/* Gentle non-blocking content entrance animation */
+@keyframes palveFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main {
+  border-radius: 6px;
+  border: 1px solid #ededed;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.035);
+  margin: 44px auto 0;
+  transition: width 0.2s ease;
+}
+
+.content .post,
+.content .list_with_title,
+.content .page_tags {
+  animation: palveFadeUp 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.content .post:nth-child(2) { animation-delay: 0.05s; }
+.content .post:nth-child(3) { animation-delay: 0.1s; }
+.content .post:nth-child(4) { animation-delay: 0.15s; }
+.content .post:nth-child(5) { animation-delay: 0.2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .content .post,
+  .content .list_with_title,
+  .content .page_tags,
+  .reading-progress.is-loading {
+    animation: none;
+  }
+}
+
+/* Balanced, compact Palve brand header (reduces Zozo's oversized 140px empty header gap) */
+.header {
+  padding: 24px 0 64px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.header .site_title_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.header .site_title_container .site_title a.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: auto;
+  float: none;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  color: #18181b;
+}
+
+.brand-mark {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+
+.header .site_title_container .description {
+  float: none;
+  text-align: right;
+}
+
+.header .my_socials {
+  float: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 6px 0 0;
+}
+
+.header .my_socials a,
 .header .my_socials .pow-icon-btn {
+  margin-left: 0;
+  color: #5f5f5f;
+  font-size: 14px;
   background: none;
   border: none;
   padding: 0;
-  margin-left: 10px;
-  color: #5f5f5f;
-  font-size: 14px;
   cursor: pointer;
-  vertical-align: middle;
+  line-height: 1;
 }
 
+.header .my_socials a:hover,
 .header .my_socials .pow-icon-btn:hover {
-  color: #000000;
+  color: #18181b;
+}
+
+/* Refined tag chips */
+.post .post_footer .meta .field.tags a {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: #f5f5f7;
+  color: #555555;
+  font-size: 12px;
+  line-height: 1.6;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.post .post_footer .meta .field.tags a:hover {
+  background: #18181b;
+  color: #ffffff;
 }
 
 /* Responsive images inside markdown posts */
 .post .post_content img {
   max-width: 100%;
   height: auto;
+  border-radius: 4px;
 }
 
 /* Translation switch link in post header */
@@ -41,7 +175,7 @@
   font-size: 12px;
   line-height: 1.4;
   letter-spacing: 0;
-  color: rgba(0, 0, 0, 0.55);
+  color: rgba(0, 0, 0, 0.52);
   border-bottom: 1px dashed rgba(0, 0, 0, 0.25);
 }
 
@@ -50,7 +184,10 @@
   border-bottom-color: #000000;
 }
 
-/* Left Sticky Chapter TOC (desktop >= 1260px fixed to the left of Zozo's centered 800px .main card) */
+/* =====================================================================
+   Seamless Integrated Left Chapter TOC (lives INSIDE the expanded white
+   card canvas on posts with headings, instead of floating abruptly outside)
+   ===================================================================== */
 .post-toc-left {
   display: none;
 }
@@ -59,45 +196,60 @@
   display: block;
 }
 
-@media (min-width: 1260px) {
-  .post-toc-left.is-ready {
-    position: fixed;
-    top: 84px;
-    right: calc(50% + 424px);
-    width: 210px;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-    padding: 12px 14px 12px 0;
-    border-right: 1px solid #ececec;
-    font-size: 13px;
-    line-height: 1.55;
-    z-index: 20;
+@media (min-width: 1080px) {
+  body.has-post-toc .main {
+    width: 1020px;
   }
 
-  .post-toc-left .toc-toggle {
+  body.has-post-toc .nav_container,
+  body.has-post-toc .header,
+  body.has-post-toc .content {
+    width: 940px;
+  }
+
+  body.has-post-toc .post_layout {
+    display: grid;
+    grid-template-columns: 196px minmax(0, 1fr);
+    gap: 44px;
+    align-items: start;
+  }
+
+  body.has-post-toc .post-toc-left.is-ready {
+    position: sticky;
+    top: 36px;
+    margin-top: 52px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding-right: 16px;
+    border-right: 1px solid #f0f0f0;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  body.has-post-toc .post-toc-left .toc-toggle {
     list-style: none;
     cursor: default;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #888888;
+    color: #999999;
     margin-bottom: 10px;
     pointer-events: none;
   }
 
-  .post-toc-left .toc-toggle::-webkit-details-marker {
+  body.has-post-toc .post-toc-left .toc-toggle::-webkit-details-marker {
     display: none;
   }
 }
 
-@media (max-width: 1259px) {
+@media (max-width: 1079px) {
   .post-toc-left.is-ready {
-    margin: 18px 0 24px;
+    margin: 26px 0 0;
     padding: 10px 14px;
     background: #fafafa;
     border: 1px solid #eeeeee;
-    border-radius: 3px;
+    border-radius: 4px;
     font-size: 13px;
   }
 
@@ -120,7 +272,7 @@
 }
 
 .post-toc-left .toc-list li {
-  margin: 5px 0;
+  margin: 6px 0;
 }
 
 .post-toc-left .toc-list li.toc-h3 {
@@ -130,7 +282,7 @@
 
 .post-toc-left .toc-list a {
   display: block;
-  color: #666666;
+  color: #777777;
   text-decoration: none;
   border-left: 2px solid transparent;
   padding-left: 8px;
@@ -139,13 +291,13 @@
 }
 
 .post-toc-left .toc-list a:hover {
-  color: #111111;
+  color: #18181b;
 }
 
 .post-toc-left .toc-list a.is-active {
-  color: #000000;
+  color: #18181b;
   font-weight: 600;
-  border-left-color: #111111;
+  border-left-color: #18181b;
 }
 
 /* Tag sections on /tags/ page */
@@ -182,13 +334,14 @@
   background: #ffffff;
   color: #222222;
   border: 1px solid #e5e5e5;
-  border-radius: 6px;
+  border-radius: 8px;
   max-width: 380px;
   width: 100%;
   padding: 20px 22px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.14);
   font-size: 14px;
   line-height: 1.6;
+  animation: palveFadeUp 0.2s ease both;
 }
 
 .pow-modal-header {
@@ -236,9 +389,9 @@
   align-items: center;
   gap: 6px;
   padding: 7px 14px;
-  border-radius: 4px;
-  border: 1px solid #222222;
-  background: #222222;
+  border-radius: 5px;
+  border: 1px solid #18181b;
+  background: #18181b;
   color: #ffffff;
   font-size: 13px;
   cursor: pointer;
@@ -251,7 +404,7 @@
 
 .pow-btn-secondary {
   background: #ffffff;
-  color: #222222;
+  color: #18181b;
   border-color: #cccccc;
 }
 
@@ -267,7 +420,7 @@
   padding: 10px 12px;
   background: #f7f7f7;
   border: 1px solid #e6e6e6;
-  border-radius: 4px;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -279,4 +432,17 @@
   font-weight: 600;
   color: #111111;
   text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .main {
+    margin-top: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .header {
+    padding: 16px 0 36px 0;
+  }
 }
