@@ -1,22 +1,43 @@
 ---
-layout: archive
+layout: default
 ---
 
-{{ content }}
+{% assign current_lang = page.lang | default: "zh" %}
+{% assign lang_posts = site.posts | where: "lang", current_lang %}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
-  {% endfor %}
+<div class="row g-5 mb-5 align-items-center">
+  <div class="col-md-8">
+    <h3 class="fw-bold mb-3">{% if current_lang == "en" %}About{% else %}关于{% endif %}</h3>
+    <div class="article-content">
+      {{ content }}
+    </div>
+  </div>
+  <div class="col-md-4 text-center">
+    <img src="{{ '/assets/avatar.png' | relative_url }}" alt="Palve" class="home-avatar">
+  </div>
 </div>
 
-{% include paginator.html %}
+{% include projects.html %}
+
+<div class="row g-5 mb-5">
+  <div class="col-md-12">
+    <div class="d-flex justify-content-between align-items-baseline border-bottom pb-3 mb-4">
+      <h3 class="fw-bold mb-0">{% if current_lang == "en" %}Updates{% else %}最新文章{% endif %}</h3>
+      <a class="small text-muted text-decoration-none" href="{% if current_lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}">
+        {% if current_lang == "en" %}All posts &rarr;{% else %}全部文章 &rarr;{% endif %}
+      </a>
+    </div>
+    {% for post in lang_posts %}
+      <div class="post-list-item">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-list-date">
+          {% if current_lang == "en" %}
+            {{ post.date | date: "%B %-d, %Y" }}
+          {% else %}
+            {{ post.date | date: "%Y-%m-%d" }}
+          {% endif %}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
+</div>

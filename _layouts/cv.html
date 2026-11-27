@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+{% assign current_lang = page.lang | default: "zh" %}
+{% if current_lang == "en" %}
+  {% assign cv = site.data.cv.en %}
+{% else %}
+  {% assign cv = site.data.cv.zh %}
+{% endif %}
+
+<div class="row g-5 mb-5">
+  <div class="col-md-12">
+    <h3 class="fw-bold border-bottom pb-3 mb-4">{{ page.title }}</h3>
+
+    {% if content and content != "" %}
+    <div class="article-content mb-5">
+      {{ content }}
+    </div>
+    {% endif %}
+
+    {% for section in cv.sections %}
+    <div class="row g-4 mb-5">
+      <div class="col-md-3">
+        <h4 class="cv-section-title">{{ section.heading }}</h4>
+      </div>
+      <div class="col-md-9">
+        {% for item in section.items %}
+          <div class="cv-item">
+            <div class="cv-item-header">
+              <p class="fw-bold mb-1">
+                {% if item.url %}
+                  <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+                {% else %}
+                  {{ item.title }}
+                {% endif %}
+              </p>
+              {% if item.period %}
+                <span class="cv-period">{{ item.period }}</span>
+              {% endif %}
+            </div>
+            {% if item.subtitle %}
+              <p class="cv-subtitle">{{ item.subtitle | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+            {% endif %}
+            {% if item.description %}
+              <div class="mb-2">{{ item.description | markdownify }}</div>
+            {% endif %}
+            {% if item.bullets %}
+              <ul class="cv-bullets">
+                {% for bullet in item.bullets %}
+                  <li>{{ bullet | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

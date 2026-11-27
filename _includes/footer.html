@@ -1,21 +1,27 @@
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-    {% endif %}
-
-    {% if site.footer.links %}
-      {% for link in site.footer.links %}
-        {% if link.label and link.url %}
-          <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
-        {% endif %}
+{% assign current_lang = page.lang | default: "zh" %}
+<footer class="pt-4 my-5 text-muted border-top">
+  <div class="row align-items-center gy-2">
+    <div class="col-md-7 small">
+      <span>&copy; {{ "now" | date: "%Y" }} {{ site.title }}.</span>
+      {% if current_lang == "en" %}
+        <span class="ms-2"><a href="{{ '/en/privacy-policy/' | relative_url }}" class="text-muted text-decoration-none">Privacy Policy</a></span>
+      {% else %}
+        <span class="ms-2"><a href="{{ '/privacy-policy/' | relative_url }}" class="text-muted text-decoration-none">隐私政策</a></span>
+      {% endif %}
+    </div>
+    <div class="col-md-5 text-md-end social-media-icons">
+      {% for item in site.data.settings.social %}
+        <a href="{{ item.link }}" class="ms-3 fs-5" title="{{ item.label }}" aria-label="{{ item.label }}"{% unless item.link contains "mailto:" %} target="_blank" rel="noopener noreferrer"{% endunless %}><i class="{{ item.icon_class }}"></i></a>
       {% endfor %}
-    {% endif %}
-
-    {% unless site.atom_feed.hide %}
-      <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-    {% endunless %}
-  </ul>
-</div>
-
-<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} <a href="{{ site.copyright_url | default: site.url }}">{{ site.copyright | default: site.title }}</a>. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+    </div>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll('[data-lang-switch]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      try {
+        localStorage.setItem('palve_lang', el.getAttribute('data-lang-switch'));
+      } catch (e) {}
+    });
+  });
+</script>

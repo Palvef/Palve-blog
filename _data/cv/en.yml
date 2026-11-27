@@ -1,0 +1,71 @@
+sections:
+  - heading: "Work & Internship Experience"
+    items:
+      - title: "DBAPPSecurity (安恒信息)"
+        period: "Dec 2025 – Jul 2026"
+        subtitle: "Security Engineering & R&D"
+        bullets:
+          - "Worked on cybersecurity engineering and R&D initiatives, including AI multi-agent penetration testing tooling and Flink operator-based big data security platform pipelines (Kafka, Elasticsearch, ClickHouse)."
+      - title: "QiAnXin Technology Group Co., Ltd. (奇安信)"
+        period: "Dec 2024 – Sep 2025"
+        subtitle: "Security Engineer — Penetration Testing · Security Monitoring · Security Operations"
+        bullets:
+          - "Provided on-site technical support and cybersecurity assurance for enterprise client environments."
+          - "Upgraded and maintained network security appliances, performed vulnerability re-assessments, and conducted internal vulnerability scanning, statistics, and reporting."
+          - "Monitored and reported EDR asset status and security findings; compiled monthly security operation reports for clients."
+          - "Participated in Red-Blue Team Exercises, Spring Cultivation Exercises, HW Operations, corporate attack-and-defense drills, and critical event protection actions."
+      - title: "Nanyang Cybersecurity Monitoring and Early Warning Center"
+        period: "Sep 2022 – Jun 2026"
+        subtitle: "Penetration Testing · Security Monitoring"
+        bullets:
+          - "Conducted security penetration testing for enterprises and educational institutions in Nanyang."
+          - "Authored vulnerability assessment reports with actionable remediation plans and continuously monitored organizational security posture."
+
+  - heading: "Infrastructure & Engineering Projects"
+    items:
+      - title: "HERNET & NYIST Open Source Software Mirrors"
+        url: "https://mirrors.ha.edu.cn"
+        period: "2023 – Present"
+        subtitle: "`mirror(s).{nyist,ha}.edu.cn` · Sync tool [synora](https://github.com/Palvef/synora) · Frontend [ha-mirrors-web](https://github.com/hernet-mirrors/ha-mirrors-web)"
+        bullets:
+          - "**Production Rollout of synora & Web Frontend**: Deployed the Rust-based mirror synchronization tool [synora](https://github.com/Palvef/synora) and web frontend [ha-mirrors-web](https://github.com/hernet-mirrors/ha-mirrors-web) across both mirror sites."
+          - "**LDAP-Backed Mirrors Infrastructure**: Built unified LDAP authentication and directory services supporting multi-node mirror operations and internal service governance."
+          - "**LuaJIT-Based NGINX Anti-Scraping Protection**: Designed edge traffic control, abusive pattern detection, and anti-scraping mechanisms for mirror downloads using LuaJIT/NGINX."
+          - "**Mirror Log Analytics Platform**: Built the **ELK mirror logging pipeline (2023–2026)** and led the transition to a **ClickHouse centralized log analytics platform (2026–present)** for real-time ingestion and high-volume querying (see [os.nju.edu.cn](https://os.nju.edu.cn))."
+          - "**Production ZFS Best Practices**: Implemented ZFS pool design, ARC/L2ARC tuning, compression, snapshots, and disaster recovery practices for production mirror storage."
+          - "**NGINX njs rsync Connection Queue**: Patched `ngx_stream_js_module` to send downstream data during `js_preread`, delivering a shared-dictionary FIFO queue with live MOTD status output."
+      - title: "Private Cloud, Virtualization & Campus DevOps"
+        bullets:
+          - "**Localized OpenStack Cluster in Production**: Deployed and operated an on-premises OpenStack cluster currently hosting **17 production workloads**."
+          - "**Campus Code Hosting & Full CI/CD Pipeline**: Deployed end-to-end campus Git code hosting integrated with automated build, test, and deployment pipelines."
+          - "**Club Proxmox VE (PVE) Cluster**: Architected and deployed a Proxmox VE virtualization cluster supporting lab environments, security ranges, and club services."
+      - title: "DNS, Distributed Networking & Probing"
+        bullets:
+          - "**Custom Recursive & Authoritative DNS**: Designed and implemented custom recursive and authoritative DNS services."
+          - "**Agent-Registered Recursive DNS Probing**: Built a distributed probing system with automatic agent registration to measure recursive DNS latency, consistency, and anomalies."
+          - "**Distributed Network Architecture**: Built multi-site overlay networking, routing policies, VLAN segmentation, and firewall hardening."
+      - title: "AI Security Agents & Big Data Platform"
+        bullets:
+          - "**AI Multi-Agent Penetration Testing Tool**: Developed a multi-agent cybersecurity penetration testing framework automating reconnaissance, attack-surface analysis, and exploitation workflows."
+          - "**Flink Operator-Based Big Data Platform**: Built real-time stream processing and analytics pipelines using Apache Flink operators integrated with **Kafka, Elasticsearch (ES), and ClickHouse (CK)**."
+
+  - heading: "Technical Skills"
+    items:
+      - title: "Languages & Scripting"
+        description: "Python, C, C++, Go, Rust, **Lua / LuaJIT**, JavaScript (njs), Shell."
+      - title: "Infrastructure, Storage & Networking"
+        description: "Linux System Administration, OpenStack, Proxmox VE (PVE), ZFS, Docker, Kubernetes, LDAP, Custom DNS, Distributed Networking, VLAN / Routing / Firewall Hardening, End-to-End CI/CD."
+      - title: "Big Data & Observability"
+        description: "Apache Flink, Kafka, Elasticsearch (ELK), ClickHouse (CK), Zabbix, Prometheus, InfluxDB, Grafana, Syslog & Application Log Analysis."
+      - title: "Cybersecurity & Offensive Security"
+        description: "Web exploitation & vulnerability chaining (SQLi, XSS, Privilege Escalation, CSRF, File Upload, RCE), AI Multi-Agent Pentesting, HW Red/Blue Team Operations, Middleware Security (Nginx/Apache/IIS); Kali Linux, Metasploit, Cobalt Strike, Burp Suite, Nmap, Sqlmap, AWVS, Wireshark, Fortify, Seay."
+
+  - heading: "Awards"
+    items:
+      - title: "Grand Prize — Educational Information Technology Application Innovation Competition (Software Adaptation & Migration, Category I)"
+        period: "Dec 2024"
+        bullets:
+          - "First Prize, Central and South China Regional Competition"
+          - "Outstanding Individual Contribution Award"
+      - title: "Second Prize — Henan Provincial Education Digital Innovation Application Competition (Individual Group)"
+        period: "Jul 2024"

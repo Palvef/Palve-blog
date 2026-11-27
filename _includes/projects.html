@@ -1,0 +1,26 @@
+{% assign current_lang = page.lang | default: "zh" %}
+{% if current_lang == "en" %}
+  {% assign section_title = "Selected Systems & Projects" %}
+  {% assign project_list = site.data.projects.en %}
+{% else %}
+  {% assign section_title = "核心项目与基础设施" %}
+  {% assign project_list = site.data.projects.zh %}
+{% endif %}
+
+<div class="row g-5 mb-5">
+  <div class="col-md-12">
+    <h3 class="fw-bold border-bottom pb-3 mb-4">{{ section_title }}</h3>
+    {% for item in project_list %}
+      <p class="mb-2">
+        {% if item.url %}
+          <a href="{{ item.url }}" class="fw-medium" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+        {% else %}
+          <span class="fw-medium">{{ item.name }}</span>
+        {% endif %}
+        {% if item.summary %}
+          <span class="text-muted"> — {{ item.summary }}</span>
+        {% endif %}
+      </p>
+    {% endfor %}
+  </div>
+</div>

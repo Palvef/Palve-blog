@@ -1,0 +1,68 @@
+---
+layout: default
+---
+
+{% assign current_lang = page.lang | default: "zh" %}
+{% if current_lang == "en" %}
+  {% assign other_lang = "zh" %}
+{% else %}
+  {% assign other_lang = "en" %}
+{% endif %}
+
+{% assign counterpart = nil %}
+{% if page.translation_id %}
+  {% assign matched_posts = site.posts | where: "translation_id", page.translation_id | where: "lang", other_lang %}
+  {% if matched_posts.size > 0 %}
+    {% assign counterpart = matched_posts.first %}
+  {% endif %}
+{% endif %}
+
+<article class="row g-5 mb-5">
+  <div class="col-md-12">
+    <header class="border-bottom pb-3 mb-4">
+      <h2 class="fw-bold mb-2">{{ page.title }}</h2>
+      <div class="post-meta d-flex flex-wrap align-items-center gap-2">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {% if current_lang == "en" %}
+            {{ page.date | date: "%B %-d, %Y" }}
+          {% else %}
+            {{ page.date | date: "%Y-%m-%d" }}
+          {% endif %}
+        </time>
+        {% if page.tags and page.tags.size > 0 %}
+          <span>&middot;</span>
+          <span>
+            {% for tag in page.tags %}
+              <span class="post-tag">#{{ tag }}</span>
+            {% endfor %}
+          </span>
+        {% endif %}
+      </div>
+    </header>
+
+    {% if counterpart %}
+    <div class="translation-banner mb-4">
+      {% if current_lang == "zh" %}
+        English version available: <a href="{{ counterpart.url | relative_url }}" data-lang-switch="en">{{ counterpart.title }}</a>
+      {% else %}
+        本文提供中文版本：<a href="{{ counterpart.url | relative_url }}" data-lang-switch="zh">{{ counterpart.title }}</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="article-content">
+      {{ content }}
+    </div>
+
+    <div class="mt-5 pt-3 border-top d-flex justify-content-between small">
+      <a href="{% if current_lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}" class="text-decoration-none">
+        {% if current_lang == "en" %}&larr; Back to all posts{% else %}&larr; 返回文章列表{% endif %}
+      </a>
+      {% if counterpart %}
+        <a href="{{ counterpart.url | relative_url }}" data-lang-switch="{{ other_lang }}" class="text-decoration-none">
+          {% if current_lang == "zh" %}Read in English &rarr;{% else %}阅读中文版 &rarr;{% endif %}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</article>
