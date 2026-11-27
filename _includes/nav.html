@@ -1,0 +1,41 @@
+{% assign current_lang = page.lang | default: "zh" %}
+{% if current_lang == "en" %}
+  {% assign nav_items = site.data.settings.nav_en %}
+  {% assign target_lang = "zh" %}
+  {% assign fallback_switch_url = "/" %}
+{% else %}
+  {% assign nav_items = site.data.settings.nav_zh %}
+  {% assign target_lang = "en" %}
+  {% assign fallback_switch_url = "/en/" %}
+{% endif %}
+
+{% assign switch_url = fallback_switch_url %}
+{% if page.translation_id %}
+  {% assign translated_pages = site.pages | where: "translation_id", page.translation_id | where: "lang", target_lang %}
+  {% if translated_pages.size > 0 %}
+    {% assign switch_url = translated_pages.first.url %}
+  {% else %}
+    {% assign translated_posts = site.posts | where: "translation_id", page.translation_id | where: "lang", target_lang %}
+    {% if translated_posts.size > 0 %}
+      {% assign switch_url = translated_posts.first.url %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+<div class="nav_container">
+    <div class="site_nav" id="site_nav">
+        <ul>
+            {% for item in nav_items %}
+            <li>
+                <a href="{% if item.external %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.name }}</a>
+            </li>
+            {% endfor %}
+            <li>
+                <a href="{{ switch_url | relative_url }}">中/EN</a>
+            </li>
+        </ul>
+    </div>
+    <div class="menu_icon">
+        <a id="menu_icon" aria-label="Menu"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></svg></a>
+    </div>
+</div>

@@ -4,7 +4,7 @@ date: 2026-10-30 12:00:00 +0800
 lang: zh
 translation_id: dell-sc200-recovery
 permalink: /2026/10/dell-sc200-power-loss-recovery/
-tags: [storage, dell, sc200, hardware]
+tags: [Dell, SC200, Storage, Hardware, Troubleshooting]
 ---
 
 Dell SC200 异常断电之后起不来，手头没有原装串口线，临时拿一根 3.5mm 耳机线和 MAX3232 模块搓了一根 Console 线连上去修好的，记一下过程免得以后忘了。

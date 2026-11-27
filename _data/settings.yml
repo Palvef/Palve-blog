@@ -1,15 +1,9 @@
-menu_zh:
-  - { name: "文章", url: "/posts/" }
-  - { name: "关于与简历", url: "/about/" }
-  - { name: "友链", url: "/friends/" }
+nav_zh:
+  - { name: "归档", url: "/archives/" }
+  - { name: "标签", url: "/tags/" }
+  - { name: "主页", url: "https://www.palve.moe", external: true }
 
-menu_en:
-  - { name: "posts", url: "/en/posts/" }
-  - { name: "about & cv", url: "/en/about/" }
-  - { name: "friends", url: "/en/friends/" }
-
-social:
-  - { label: "Email", icon_class: "fas fa-envelope", link: "mailto:i@palve.moe" }
-  - { label: "Website", icon_class: "fas fa-link", link: "https://palve.moe" }
-  - { label: "GitHub", icon_class: "fab fa-github", link: "https://github.com/Palvef" }
-  - { label: "Telegram", icon_class: "fab fa-telegram", link: "https://t.me/Palvefs" }
+nav_en:
+  - { name: "Archives", url: "/en/archives/" }
+  - { name: "Tags", url: "/en/tags/" }
+  - { name: "Me", url: "https://www.palve.moe", external: true }

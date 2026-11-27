@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+{% assign current_lang = page.lang | default: "zh" %}
+{% assign lang_posts = site.posts | where: "lang", current_lang %}
+{% assign posts_by_year = lang_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+<div class="content">
+    <div class="list_with_title">
+        {% for year_group in posts_by_year %}
+        <div class="listing_title">{{ year_group.name }}</div>
+        <div class="listing">
+            {% for post in year_group.items %}
+            <div class="listing_item">
+                <div class="listing_post">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    <div class="post_time"><span class="date">{{ post.date | date: "%m-%d" }}</span></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination"></div>
+</div>

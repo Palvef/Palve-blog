@@ -5,8 +5,14 @@ layout: default
 {% assign current_lang = page.lang | default: "zh" %}
 {% if current_lang == "en" %}
   {% assign other_lang = "zh" %}
+  {% assign tags_base = "/en/tags/" %}
+  {% assign toc_label = "On this page" %}
+  {% assign switch_label = "阅读中文版" %}
 {% else %}
   {% assign other_lang = "en" %}
+  {% assign tags_base = "/tags/" %}
+  {% assign toc_label = "章节目录" %}
+  {% assign switch_label = "Read in English" %}
 {% endif %}
 
 {% assign counterpart = nil %}
@@ -17,52 +23,40 @@ layout: default
   {% endif %}
 {% endif %}
 
-<article class="row g-5 mb-5">
-  <div class="col-md-12">
-    <header class="border-bottom pb-3 mb-4">
-      <h2 class="fw-bold mb-2">{{ page.title }}</h2>
-      <div class="post-meta d-flex flex-wrap align-items-center gap-2">
-        <time datetime="{{ page.date | date_to_xmlschema }}">
-          {% if current_lang == "en" %}
-            {{ page.date | date: "%B %-d, %Y" }}
-          {% else %}
-            {{ page.date | date: "%Y-%m-%d" }}
-          {% endif %}
-        </time>
-        {% if page.tags and page.tags.size > 0 %}
-          <span>&middot;</span>
-          <span>
-            {% for tag in page.tags %}
-              <span class="post-tag">#{{ tag }}</span>
-            {% endfor %}
-          </span>
-        {% endif %}
-      </div>
-    </header>
+<aside id="post-toc-left" class="post-toc-left" aria-label="{{ toc_label }}">
+    <details open>
+        <summary class="toc-toggle">{{ toc_label }}</summary>
+        <ul class="toc-list"></ul>
+    </details>
+</aside>
 
-    {% if counterpart %}
-    <div class="translation-banner mb-4">
-      {% if current_lang == "zh" %}
-        English version available: <a href="{{ counterpart.url | relative_url }}" data-lang-switch="en">{{ counterpart.title }}</a>
-      {% else %}
-        本文提供中文版本：<a href="{{ counterpart.url | relative_url }}" data-lang-switch="zh">{{ counterpart.title }}</a>
-      {% endif %}
+<div class="content">
+    <div class="post_page">
+        <div class="post">
+            <div class="post_title post_detail_title">
+                <h2><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h2>
+                <span class="date">{{ page.date | date: "%Y.%m.%d" }}</span>
+                {% if counterpart %}
+                <a class="post_lang_link" href="{{ counterpart.url | relative_url }}">{{ switch_label }}</a>
+                {% endif %}
+            </div>
+            <div class="post_content markdown">
+                {{ content }}
+            </div>
+            <div class="post_footer">
+                {% if page.tags and page.tags.size > 0 %}
+                <div class="meta">
+                    <div class="info">
+                        <span class="field tags">
+                            <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.083 15.2l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zm0-4.7l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm-7.569-9.191l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0zM12 3.332L5.887 7 12 10.668 18.113 7 12 3.332z"/></svg>
+                            {% for tag in page.tags %}
+                            <a href="{{ tags_base | relative_url }}#tag-{{ tag | slugify }}">{{ tag }}</a>
+                            {% endfor %}
+                        </span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    {% endif %}
-
-    <div class="article-content">
-      {{ content }}
-    </div>
-
-    <div class="mt-5 pt-3 border-top d-flex justify-content-between small">
-      <a href="{% if current_lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}" class="text-decoration-none">
-        {% if current_lang == "en" %}&larr; Back to all posts{% else %}&larr; 返回文章列表{% endif %}
-      </a>
-      {% if counterpart %}
-        <a href="{{ counterpart.url | relative_url }}" data-lang-switch="{{ other_lang }}" class="text-decoration-none">
-          {% if current_lang == "zh" %}Read in English &rarr;{% else %}阅读中文版 &rarr;{% endif %}
-        </a>
-      {% endif %}
-    </div>
-  </div>
-</article>
+</div>

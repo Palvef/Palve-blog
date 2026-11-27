@@ -1,27 +1,18 @@
-{% assign current_lang = page.lang | default: "zh" %}
-<footer class="pt-4 my-5 text-muted border-top">
-  <div class="row align-items-center gy-2">
-    <div class="col-md-7 small">
-      <span>&copy; {{ "now" | date: "%Y" }} {{ site.title }}.</span>
-      {% if current_lang == "en" %}
-        <span class="ms-2"><a href="{{ '/en/privacy-policy/' | relative_url }}" class="text-muted text-decoration-none">Privacy Policy</a></span>
-      {% else %}
-        <span class="ms-2"><a href="{{ '/privacy-policy/' | relative_url }}" class="text-muted text-decoration-none">隐私政策</a></span>
-      {% endif %}
+<footer class="footer">
+    <div class="powered_by">
+        <span>&copy; {{ "now" | date: "%Y" }} {{ site.title }}.</span>
+        <a href="{{ site.homepage_url }}" target="_blank" rel="noopener noreferrer">www.palve.moe</a>
     </div>
-    <div class="col-md-5 text-md-end social-media-icons">
-      {% for item in site.data.settings.social %}
-        <a href="{{ item.link }}" class="ms-3 fs-5" title="{{ item.label }}" aria-label="{{ item.label }}"{% unless item.link contains "mailto:" %} target="_blank" rel="noopener noreferrer"{% endunless %}><i class="{{ item.icon_class }}"></i></a>
-      {% endfor %}
-    </div>
-  </div>
 </footer>
 <script>
-  document.querySelectorAll('[data-lang-switch]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      try {
-        localStorage.setItem('palve_lang', el.getAttribute('data-lang-switch'));
-      } catch (e) {}
-    });
-  });
+  window.PALVE_EMAIL_POW = {
+    salt: "{{ site.email_pow.salt }}",
+    difficulty: {{ site.email_pow.difficulty }},
+    ct: "{{ site.email_pow.ct }}"
+  };
 </script>
+<script src="{{ '/assets/js/zozo.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/email-pow.js' | relative_url }}"></script>
+{% if page.layout == "post" %}
+<script src="{{ '/assets/js/toc.js' | relative_url }}"></script>
+{% endif %}

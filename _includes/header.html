@@ -1,52 +1,29 @@
 {% assign current_lang = page.lang | default: "zh" %}
 {% if current_lang == "en" %}
   {% assign home_url = "/en/" %}
-  {% assign site_desc = site.description %}
-  {% assign nav_menu = site.data.settings.menu_en %}
-  {% assign target_lang = "zh" %}
-  {% assign fallback_switch_url = "/" %}
+  {% assign sub_text = site.subtitle %}
+  {% assign email_label = "Verify & Reveal Email" %}
 {% else %}
   {% assign home_url = "/" %}
-  {% assign site_desc = site.description_zh %}
-  {% assign nav_menu = site.data.settings.menu_zh %}
-  {% assign target_lang = "en" %}
-  {% assign fallback_switch_url = "/en/" %}
+  {% assign sub_text = site.subtitle_zh %}
+  {% assign email_label = "验证并查看邮箱" %}
 {% endif %}
 
-{% assign switch_url = fallback_switch_url %}
-{% if page.translation_id %}
-  {% assign translated_pages = site.pages | where: "translation_id", page.translation_id | where: "lang", target_lang %}
-  {% if translated_pages.size > 0 %}
-    {% assign switch_url = translated_pages.first.url %}
-  {% else %}
-    {% assign translated_posts = site.posts | where: "translation_id", page.translation_id | where: "lang", target_lang %}
-    {% if translated_posts.size > 0 %}
-      {% assign switch_url = translated_posts.first.url %}
-    {% endif %}
-  {% endif %}
-{% endif %}
-
-<header class="site-header d-flex flex-column flex-md-row align-items-md-center pb-3 mb-5 border-bottom">
-  <div>
-    <a href="{{ home_url | relative_url }}" class="d-flex align-items-center text-decoration-none">
-      <span class="fs-4 fw-bold site-brand-title">{{ site.title }}</span>
-    </a>
-    <a href="{{ home_url | relative_url }}" class="d-flex align-items-center text-decoration-none">
-      <span class="site-brand-desc">{{ site_desc }}</span>
-    </a>
-  </div>
-  <nav class="site-nav d-inline-flex mt-2 mt-md-0 ms-md-auto" aria-label="Primary Navigation">
-    {% for item in nav_menu %}
-      <a class="nav-item-link me-3 py-2 text-decoration-none{% if page.url == item.url %} active{% endif %}" href="{{ item.url | relative_url }}">{{ item.name }}</a>
-    {% endfor %}
-    <div class="lang-switcher ms-md-1 my-1" role="group" aria-label="Language switcher">
-      {% if current_lang == "zh" %}
-        <span class="lang-active" aria-current="true">中文</span>
-        <a href="{{ switch_url | relative_url }}" data-lang-switch="en" title="Switch to English">EN</a>
-      {% else %}
-        <a href="{{ switch_url | relative_url }}" data-lang-switch="zh" title="切换为中文">中文</a>
-        <span class="lang-active" aria-current="true">EN</span>
-      {% endif %}
+<div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="{{ home_url | relative_url }}">
+                    <span>{{ site.title }}</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">{{ sub_text }}</p>
+            <div class="my_socials">
+                <button type="button" class="pow-icon-btn" data-pow-email-trigger title="{{ email_label }}" aria-label="{{ email_label }}"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/></svg></button>
+                <a href="{{ '/feed.xml' | relative_url }}" type="application/atom+xml" title="RSS" aria-label="RSS" target="_blank"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17a4 4 0 0 1 4 4H3v-4zm0-7c6.075 0 11 4.925 11 11h-2a9 9 0 0 0-9-9v-2zm0-7c9.941 0 18 8.059 18 18h-2c0-8.837-7.163-16-16-16V3z"/></svg></a>
+            </div>
+        </div>
     </div>
-  </nav>
-</header>
+</div>

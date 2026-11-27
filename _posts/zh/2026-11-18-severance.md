@@ -1,10 +1,12 @@
 ---
 title: "切割"
-date: 2026-10-18 20:00:00 +0800
+date: 2026-11-18 20:00:00 +0800
 lang: zh
 translation_id: severance
-permalink: /2026/10/severance/
-tags: [essay, reflection]
+permalink: /2026/11/severance/
+redirect_from:
+  - /2026/10/severance/
+tags: [Essay, Reflection]
 ---
 
 切割从来不需要太多仪式，尤其是单方面作出的决定。

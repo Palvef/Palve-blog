@@ -4,40 +4,42 @@ layout: default
 
 {% assign current_lang = page.lang | default: "zh" %}
 {% assign lang_posts = site.posts | where: "lang", current_lang %}
+{% if current_lang == "en" %}
+  {% assign tags_base = "/en/tags/" %}
+{% else %}
+  {% assign tags_base = "/tags/" %}
+{% endif %}
 
-<div class="row g-5 mb-5 align-items-center">
-  <div class="col-md-8">
-    <h3 class="fw-bold mb-3">{% if current_lang == "en" %}About{% else %}关于{% endif %}</h3>
-    <div class="article-content">
-      {{ content }}
-    </div>
-  </div>
-  <div class="col-md-4 text-center">
-    <img src="{{ '/assets/avatar.png' | relative_url }}" alt="Palve" class="home-avatar">
-  </div>
-</div>
-
-{% include projects.html %}
-
-<div class="row g-5 mb-5">
-  <div class="col-md-12">
-    <div class="d-flex justify-content-between align-items-baseline border-bottom pb-3 mb-4">
-      <h3 class="fw-bold mb-0">{% if current_lang == "en" %}Updates{% else %}最新文章{% endif %}</h3>
-      <a class="small text-muted text-decoration-none" href="{% if current_lang == 'en' %}{{ '/en/posts/' | relative_url }}{% else %}{{ '/posts/' | relative_url }}{% endif %}">
-        {% if current_lang == "en" %}All posts &rarr;{% else %}全部文章 &rarr;{% endif %}
-      </a>
-    </div>
+<div class="content">
     {% for post in lang_posts %}
-      <div class="post-list-item">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span class="post-list-date">
-          {% if current_lang == "en" %}
-            {{ post.date | date: "%B %-d, %Y" }}
-          {% else %}
-            {{ post.date | date: "%Y-%m-%d" }}
-          {% endif %}
-        </span>
-      </div>
+    <div class="post">
+        <div class="post_title">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        </div>
+        <div class="list">
+            <div class="post_content markdown">
+                <p>{{ post.excerpt | strip_html | truncate: 240 }}</p>
+            </div>
+        </div>
+        <div class="post_footer">
+            <div class="meta">
+                <div class="info">
+                    <span class="field">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm1-8h4v2h-6V7h2v5z"/></svg>
+                        <span class="date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                    </span>
+                    {% if post.tags and post.tags.size > 0 %}
+                    <span class="field tags">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.083 15.2l1.202.721a.5.5 0 0 1 0 .858l-8.77 5.262a1 1 0 0 1-1.03 0l-8.77-5.262a.5.5 0 0 1 0-.858l1.202-.721L12 20.05l8.083-4.85zm0-4.7l1.202.721a.5.5 0 0 1 0 .858L12 17.65l-9.285-5.571a.5.5 0 0 1 0-.858l1.202-.721L12 15.35l8.083-4.85zm-7.569-9.191l8.771 5.262a.5.5 0 0 1 0 .858L12 13 2.715 7.429a.5.5 0 0 1 0-.858l8.77-5.262a1 1 0 0 1 1.03 0zM12 3.332L5.887 7 12 10.668 18.113 7 12 3.332z"/></svg>
+                        {% for tag in post.tags %}
+                        <a href="{{ tags_base | relative_url }}#tag-{{ tag | slugify }}">{{ tag }}</a>
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
     {% endfor %}
-  </div>
+    <div class="pagination"></div>
 </div>

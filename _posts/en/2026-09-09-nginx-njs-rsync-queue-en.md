@@ -4,7 +4,7 @@ date: 2026-09-09 12:00:00 +0800
 lang: en
 translation_id: nginx-njs-rsync-queue
 permalink: /en/2026/09/nginx-njs-rsync-queue/
-tags: [nginx, njs, rsync, mirrors]
+tags: [NGINX, njs, rsync, Mirrors, Linux]
 ---
 
 When `rsync` concurrency fills up on a mirror server, both `rsyncd`'s `max connections` and NGINX `limit_conn` simply reject new connections. Clients either bail out or hammer the server in a retry loop.

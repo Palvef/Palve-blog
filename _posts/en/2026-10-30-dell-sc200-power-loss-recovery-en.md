@@ -4,7 +4,7 @@ date: 2026-10-30 12:00:00 +0800
 lang: en
 translation_id: dell-sc200-recovery
 permalink: /en/2026/10/dell-sc200-power-loss-recovery/
-tags: [storage, dell, sc200, hardware]
+tags: [Dell, SC200, Storage, Hardware, Troubleshooting]
 ---
 
 A Dell SC200 failed to boot after an unexpected power outage. Without an OEM serial cable around, I threw together a 3.5mm TRS console cable with a MAX3232 module to get in and bring it back up. Writing down the pinout and commands here for future reference.

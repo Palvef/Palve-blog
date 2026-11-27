@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+{% assign current_lang = page.lang | default: "zh" %}
+{% assign lang_posts = site.posts | where: "lang", current_lang %}
+{% assign all_tags_raw = "" | split: "" %}
+{% for post in lang_posts %}
+  {% for tag in post.tags %}
+    {% unless all_tags_raw contains tag %}
+      {% assign all_tags_raw = all_tags_raw | push: tag %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign sorted_tags = all_tags_raw | sort_natural %}
+
+<div class="content">
+    <div class="page_tags">
+        <ul>
+            {% for tag in sorted_tags %}
+            {% assign tag_count = 0 %}
+            {% for post in lang_posts %}
+              {% if post.tags contains tag %}
+                {% assign tag_count = tag_count | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+            <li>
+                <a href="#tag-{{ tag | slugify }}">
+                    {{ tag }} <span class="terms_count">{{ tag_count }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="list_with_title">
+        {% for tag in sorted_tags %}
+        <div class="tag_section" id="tag-{{ tag | slugify }}">
+            <div class="tag_section_title"># {{ tag }}</div>
+            <div class="listing">
+                {% for post in lang_posts %}
+                  {% if post.tags contains tag %}
+                  <div class="listing_item">
+                      <div class="listing_post">
+                          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                          <div class="post_time"><span class="date">{{ post.date | date: "%Y.%m.%d" }}</span></div>
+                      </div>
+                  </div>
+                  {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination"></div>
+</div>

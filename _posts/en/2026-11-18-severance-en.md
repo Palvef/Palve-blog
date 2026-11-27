@@ -1,10 +1,12 @@
 ---
 title: "Clean Break"
-date: 2026-10-18 20:00:00 +0800
+date: 2026-11-18 20:00:00 +0800
 lang: en
 translation_id: severance
-permalink: /en/2026/10/severance/
-tags: [essay, reflection]
+permalink: /en/2026/11/severance/
+redirect_from:
+  - /en/2026/10/severance/
+tags: [Essay, Reflection]
 ---
 
 A clean break rarely needs much ceremony—especially when the decision is made unilaterally.

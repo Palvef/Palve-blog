@@ -1,14 +1,23 @@
 url: "https://blog.palve.moe"
 baseurl: ""
 title: "Palve"
-description: "System Administrator, Infrastructure & Security Engineer"
-description_zh: "系统运维、基础设施与网络安全工程师"
+subtitle: "System, Network & Security Notes"
+subtitle_zh: "系统、网络与安全笔记"
+description: "Palve's Blog"
 repository: "Palvef/Palve-blog"
+homepage_url: "https://www.palve.moe"
 google_analytics: "G-Y7KVPN8R2K"
 
 lang: zh-CN
 timezone: "Asia/Shanghai"
 permalink: /:year/:month/:slug/
+excerpt_separator: "\n\n"
+
+# Browser SHA-256 Proof-of-Work encrypted contact payload (no plaintext email in HTML/JS)
+email_pow:
+  salt: "palve-pow-2026-2009d04467e3"
+  difficulty: 18
+  ct: "e3258a7cc069a6f2931eebac7279"
 
 markdown: kramdown
 highlighter: rouge
@@ -19,11 +28,6 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: "highlight"
-
-sass:
-  sass_dir: _sass
-  style: compressed
-  quiet_deps: true
 
 plugins:
   - jekyll-feed

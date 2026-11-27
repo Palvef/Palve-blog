@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="{% if page.lang == 'en' %}en-US{% else %}zh-CN{% endif %}">
-  {% include head.html %}
-  <body>
-    <div class="col-lg-8 mx-auto p-3 py-md-5">
-      {% include header.html %}
-      <main>
+<html lang="{% if page.lang == 'en' %}en{% else %}zh-CN{% endif %}">
+{% include head.html %}
+<body>
+    <div class="main">
+        {% include nav.html %}
+        {% include header.html %}
         {{ content }}
-      </main>
-      {% include footer.html %}
     </div>
-  </body>
+    <a id="back_to_top" href="#" class="back_to_top" aria-label="Back to top"><svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z"/></svg></a>
+    {% include footer.html %}
+</body>
 </html>

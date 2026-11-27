@@ -4,7 +4,7 @@ date: 2024-11-09 12:00:00 +0800
 lang: zh
 translation_id: hackergame-2024
 permalink: /2024/11/Hackergame2024_writeups/
-tags: [blog, ctf, hackergame2024]
+tags: [CTF, Hackergame, ZFS, Security]
 ---
 
 # Hackergame2024 非官方题解

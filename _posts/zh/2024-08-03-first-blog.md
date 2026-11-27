@@ -4,7 +4,7 @@ date: 2024-08-03 12:00:00 +0800
 lang: zh
 translation_id: first-blog
 permalink: /2024/08/first-blog/
-tags: [blog]
+tags: [Blog]
 ---
 
 在折腾和寻觅了几天之后，Palve 的博客终于正式上线了。

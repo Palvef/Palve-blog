@@ -4,7 +4,7 @@ date: 2026-09-09 12:00:00 +0800
 lang: zh
 translation_id: nginx-njs-rsync-queue
 permalink: /2026/09/nginx-njs-rsync-queue/
-tags: [nginx, njs, rsync, mirrors]
+tags: [NGINX, njs, rsync, Mirrors, Linux]
 ---
 
 镜像站的 `rsync` 并发打满时，无论是 `rsyncd` 自己的 `max connections` 还是 NGINX 的 `limit_conn`，表现都是直接掐断连接。客户端只能报错退出或者写个死循环一直重试。
